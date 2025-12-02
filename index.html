@@ -1,27 +1,41 @@
-<!DOCTYPE html>
 <html>
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
-      
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.0/dist/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a-scene 
+        mindar-image="imageTargetSrc: https://raw.githubusercontent.com/Botan0302/armodel4/refs/heads/main/targets.mind;"
+        color-space="sRGB"
+        embedded
+        vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+
       <a-assets>
-        <a-asset-item id="houseModel" src="https://botan0302.github.io/armodel4/manhaus.glb"></a-asset-item>
+        <a-asset-item id="haus-model" src="https://raw.githubusercontent.com/Botan0302/armodel4/refs/heads/main/manhaus.glb"></a-asset-item>
       </a-assets>
 
-      <a-marker preset="hiro">
-        
-        <a-entity 
-            gltf-model="#houseModel" 
-            scale="0.05 0.05 0.05" 
-            rotation="0 0 0" 
-            position="0 0 0">
-        </a-entity>
+      <a-camera look-controls="false"></a-camera>
 
-      </a-marker>
-      
-      <a-entity camera></a-entity>
+      <!-- Das Modell wird sichtbar, wenn das Bild getrackt wird -->
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model 
+            src="#haus-model"
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="0.1 0.1 0.1">
+        </a-gltf-model>
+      </a-entity>
+
     </a-scene>
   </body>
 </html>
