@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mein AR Projekt</title>
+    <title>IMAGE BASED AR TEST</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
   </head>
@@ -22,16 +22,14 @@
 
       <a-entity mindar-image-target="targetIndex: 0">
         
-        <a-box position="0 0 0" scale="0.5 0.5 0.5" color="red" opacity="0.5"></a-box>
-
         <a-gltf-model 
           src="#hausModel" 
           rotation="90 0 0" 
           position="0 0 0" 
           scale="0.1 0.1 0.1">
         </a-gltf-model>
-
-        </a-entity>
+        
+      </a-entity>
     </a-scene>
   </body>
 </html>
